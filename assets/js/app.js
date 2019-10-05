@@ -20,7 +20,6 @@ $("#submit").on("click", function(event){
        $.ajax(settings).done(function (response) {
            var json = JSON.parse(response);
            console.log(json);
-<<<<<<< HEAD
            
 
            
@@ -66,9 +65,7 @@ $("#submit").on("click", function(event){
            };
        });
 
-=======
 
            
        });
->>>>>>> 07af55ff599fe082aab68a3995d9be2843c3789a
 });
