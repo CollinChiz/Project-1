@@ -1,0 +1,32 @@
+.jumbotron {
+    background-color: #4ABDAC;
+}
+.container {
+    text-align: center;
+}
+
+.row-one {
+    width: 50%;
+    text-align: center;
+    padding: 50px;
+    display: inline; 
+}
+h2 {
+    padding-top: 40px;
+    padding-left: 40px;
+    padding-bottom: 60px; 
+    padding-right: 40px;
+}
+
+h1 {
+    font-family: 'Mansalva', cursive;
+    
+}
+
+p, h2 {
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.icons {
+    font-size: 18px; 
+}
