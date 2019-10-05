@@ -1,0 +1,86 @@
+.jumbotron {
+    background-color: #4ABDAC;
+}
+.container {
+    text-align: center;
+}
+
+.row-one {
+    width: 50%;
+    text-align: center;
+    padding: 50px;
+    display: inline; 
+}
+h2 {
+    padding-top: 30px;
+    padding-left: 30px;
+    padding-bottom: 50px; 
+    padding-right: 30px;
+}
+h1 {
+    font-family: 'Mansalva', cursive;
+    padding: 10px; 
+}
+p, h2 {
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.icons {
+    font-size: 18px; 
+}
+
+.button {
+    background-color:#F7C331;
+    border: none;
+    color: white;
+    padding: 15px 25px;
+    text-align: center;
+    font-size: 16px;
+    font-family: 'Roboto Condensed', sans-serif;
+  }
+  .button2 {
+    background-color: #4ABDAC;
+    border: none;
+    color: white;
+    padding: 15px 25px;
+    text-align: center;
+    font-size: 16px;
+    font-family: 'Roboto Condensed', sans-serif;
+  }
+  
+  .button2:hover{
+      background-color: #F7C331; 
+  }
+  .button:hover {
+    background-color: #FC4A1A;
+  }
+
+  #container-2 {
+    background-color: #4ABDAC;
+    margin-top: 60px;
+    width: 100%; 
+  }
+
+  .column-1{
+      padding: 200px; 
+      background-image: url("tomatoes.jpg");
+      width: 50%;
+  }
+  input {
+      padding: 10px; 
+      width: 100%; 
+      margin-bottom: 10px;   
+  }
+
+  form {
+    
+  }
+  .column-2{
+      background-image: url(pantry.jpg);
+      width: 50%;
+  }
+  #pantry-shelves {
+      text-align: center; 
+  }
+
+  
