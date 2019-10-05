@@ -139,6 +139,7 @@ $("#submit").on("click", function(event){
                 var recipeCals = response.hits[i].recipe.calories;
                 recipeCals = Math.floor(recipeCals);
                 var recipeURL = response.hits[i].recipe.url;
+                var recipeIngredients = response.hits[i].recipe.ingredientLines;
 
                 var newDiv = $("<div>");
                 newDiv.addClass("card");
@@ -161,6 +162,12 @@ $("#submit").on("click", function(event){
 
                 var cardBody = $("<div>");
                 cardBody.addClass("card-body");
+
+                cardBody.append("<p>Ingredients: </p><br/>");
+
+                for (j = 0; j < recipeIngredients.length; j++) {
+                    cardBody.append("<p>" + recipeIngredients[j] + "</p><br/>");
+                }
 
                 cardBody.append("<p>Calories: " + recipeCals + "</p>");
 
