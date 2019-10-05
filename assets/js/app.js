@@ -1,10 +1,10 @@
 $(document).ready(function () {
 
-    var provider = new firebase.auth.GoogleAuthProvider();
+    /*var provider = new firebase.auth.GoogleAuthProvider();
 
     function signIn() {
 
-    firebase.auth().signInWithPopup(provider)/*.then(function(result) {
+    firebase.auth().signInWithPopup(provider).then(function(result) {
         console.log(result);
       }).catch(function(error) {
         // Handle Errors here.
@@ -15,17 +15,18 @@ $(document).ready(function () {
         // The firebase.auth.AuthCredential type that was used.
         var credential = error.credential;
         // ...
-      });*/
+      });
     };
 
-    signIn();
+    signIn();*/
 
 
 
     var ingredients = [];
     var addIngredients = "";
 
-    $("#addIngredient").on("click", function() {
+    $("#addIngredient").on("click", function(e) {
+        e.preventDefault();
         addIngredients = $("#ingredientInput").val().trim();
         addIngredients = addIngredients.replace(/\s+/g, "").toLowerCase();
         addIngredients = addIngredients.split(",");

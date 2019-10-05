@@ -19,6 +19,7 @@
 
     <script src="https://www.gstatic.com/firebasejs/7.1.0/firebase-analytics.js"></script>
     <script src="assets/js/app.js"></script>
+    <script src="assets/javascript/script.js"></script>
 
 
     <script>
@@ -44,10 +45,6 @@
              <button class="button"><strong>LET'S GO!</strong></button>
             </div>
         </div>
-        <div class="container">
-            <h1 class="display-4">What's in my pantry?</h1>
-            <p class="lead">List your ingredients here!</p>
-        </div>
     </div>
     <div class="container">
         <div class="row-one">
@@ -71,11 +68,11 @@
             <div class="row">
                 <div class="column-1">
                 <form>
-                    <input type="text" name="food" placeholder="Input food here...">
-                    <button class="button2"><strong>ADD TO YOUR PANTRY</strong></button>
+                    <input type="text" name="food" placeholder="Input food here..." id="ingredientInput">
+                    <button class="button2" id="addIngredient"><strong>ADD TO YOUR PANTRY</strong></button>
                 </form>
                 </div>
-                <div class="column-2">
+                <div class="column-2 ingredients">
                 
                 </div>
 
