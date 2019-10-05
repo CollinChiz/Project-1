@@ -1,44 +1,35 @@
 $(document).ready(function () {
 
+    var ingredients = [];
+    var addIngredients = "";
+
+    $("#addIngredient").on("click", function() {
+        addIngredients = $("#ingredientInput").val().trim();
+        addIngredients = addIngredients.replace(/\s+/g, "").toLowerCase();
+        addIngredients = addIngredients.split(",");
+
+        for (i = 0; i < addIngredients.length; i++) {
+            ingredients.push(addIngredients[i]);
+        }
+
+        for (i = 0; i < addIngredients.length; i++) {
+            $(".ingredients").append(addIngredients[i] + " ");
+        }
+
+        $("#ingredientInput").val("");
+    });
+
     $("#submit").on("click", function (e) {
         e.preventDefault();
-
-        /*var ingredients = $("#ingredients").val().trim();
-        ingredients = ingredients.replace(/\s+/g, "").toLowerCase();
-        console.log(ingredients);
-
-
-
-        var queryURL = "https://recipe-puppy.p.rapidapi.com/?p=1&i=" + ingredients;
-        
-
-        var settings = {
-            "async": true,
-            "crossDomain": true,
-            "url": queryURL,
-            "method": "GET",
-            "headers": {
-                "x-rapidapi-host": "recipe-puppy.p.rapidapi.com",
-                "x-rapidapi-key": "e9f470e923msh1d7aabd0ff0db38p18efc3jsnc8efd1593048"
-            }
-        }
-        
-        $.ajax(settings).done(function (response) {
-            var json = JSON.parse(response);
-            console.log(json);
-        });*/
-
-        var ingredients = $("#ingredients").val().trim();
-        ingredients = ingredients.replace(/\s+/g, "").toLowerCase();
-        ingredients = ingredients.split(",");
-
 
         var appKey = "c31de725535780190b9ff532d8eb8706";
         var appId = "d0ac8702";
 
-        // var queryURL = "https://api.edamam.com/search?q=" + ingredients[0] + " " + ingredients[1] + "&app_id=" + appId + "&app_key=" + appKey;
+        ingredients = ingredients.join(" ");
 
-        var queryURL = "https://api.edamam.com/search?q=";
+        var queryURL = "https://api.edamam.com/search?q=" + ingredients + "&app_id=" + appId + "&app_key=" + appKey;
+
+        /*var queryURL = "https://api.edamam.com/search?q=";
 
         for (i = 0; i < ingredients.length; i++) {
             queryURL += ingredients[i];
@@ -47,7 +38,7 @@ $(document).ready(function () {
 
         queryURL = queryURL + "&app_id=" + appId + "&app_key=" + appKey;
 
-        console.log(queryURL);
+        console.log(queryURL);*/
 
         $.ajax({
             url: queryURL,
