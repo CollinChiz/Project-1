@@ -56,10 +56,11 @@ $("#submit").on("click", function(event){
                newDiv.append(cardBody);
 
                $(".recipes").append(newDiv);
+               $(".recipes").append(newDiv);
 
 
 
-               
+
 
            };
        });
