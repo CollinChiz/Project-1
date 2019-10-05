@@ -1,12 +1,31 @@
+$(document).ready(function () {
+
+    var ingredients = [];
+    var addIngredients = "";
+
+    $("#addIngredient").on("click", function(e) {
+        e.preventDefault();
+        addIngredients = $("#ingredientInput").val().trim();
+        addIngredients = addIngredients.replace(/\s+/g, "").toLowerCase();
+        addIngredients = addIngredients.split(",");
+
+        for (i = 0; i < addIngredients.length; i++) {
+            ingredients.push(addIngredients[i]);
+        }
+
+        for (i = 0; i < addIngredients.length; i++) {
+            $(".ingredients").append(addIngredients[i] + " ");
+        }
+
+        $("#ingredientInput").val("");
+    });
+
 
 $("#submit").on("click", function(event){
     event.preventDefault();
-    var ingredients = $("#ingredients").val().trim();
-       ingredients = ingredients.replace(/\s+/g, "").toLowerCase();
        console.log(ingredients);
-       var ingredientsArray = ingredients.split(",");
-       console.log(ingredientsArray);
-       var queryURL = "https://recipe-puppy.p.rapidapi.com/?p=1&i=" + ingredients;
+       var ingredientString = ingredients.join(",");
+       var queryURL = "https://recipe-puppy.p.rapidapi.com/?p=1&i=" + ingredientString;
        var settings = {
            "async": true,
            "crossDomain": true,
@@ -69,28 +88,32 @@ $("#submit").on("click", function(event){
 
            
        });
-});
 
-$(document).ready(function () {
 
-    var ingredients = [];
-    var addIngredients = "";
 
-    $("#addIngredient").on("click", function() {
-        addIngredients = $("#ingredientInput").val().trim();
-        addIngredients = addIngredients.replace(/\s+/g, "").toLowerCase();
-        addIngredients = addIngredients.split(",");
+    /*var provider = new firebase.auth.GoogleAuthProvider();
 
-        for (i = 0; i < addIngredients.length; i++) {
-            ingredients.push(addIngredients[i]);
-        }
+    function signIn() {
 
-        for (i = 0; i < addIngredients.length; i++) {
-            $(".ingredients").append(addIngredients[i] + " ");
-        }
+    firebase.auth().signInWithPopup(provider).then(function(result) {
+        console.log(result);
+      }).catch(function(error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        // The email of the user's account used.
+        var email = error.email;
+        // The firebase.auth.AuthCredential type that was used.
+        var credential = error.credential;
+        // ...
+      });
+    };
 
-        $("#ingredientInput").val("");
-    });
+    signIn();*/
+
+
+
+    
 
     $("#submit").on("click", function (e) {
         e.preventDefault();
@@ -101,17 +124,6 @@ $(document).ready(function () {
         ingredients = ingredients.join(" ");
 
         var queryURL = "https://api.edamam.com/search?q=" + ingredients + "&app_id=" + appId + "&app_key=" + appKey;
-
-        /*var queryURL = "https://api.edamam.com/search?q=";
-
-        for (i = 0; i < ingredients.length; i++) {
-            queryURL += ingredients[i];
-            queryURL += " ";
-        }
-
-        queryURL = queryURL + "&app_id=" + appId + "&app_key=" + appKey;
-
-        console.log(queryURL);*/
 
         $.ajax({
             url: queryURL,
