@@ -1,5 +1,7 @@
 $(document).ready(function () {
 
+    var database = firebase.database();
+
     var ingredients = [];
     var addIngredients = "";
 
@@ -28,17 +30,6 @@ $(document).ready(function () {
         ingredients = ingredients.join(" ");
 
         var queryURL = "https://api.edamam.com/search?q=" + ingredients + "&app_id=" + appId + "&app_key=" + appKey;
-
-        /*var queryURL = "https://api.edamam.com/search?q=";
-
-        for (i = 0; i < ingredients.length; i++) {
-            queryURL += ingredients[i];
-            queryURL += " ";
-        }
-
-        queryURL = queryURL + "&app_id=" + appId + "&app_key=" + appKey;
-
-        console.log(queryURL);*/
 
         $.ajax({
             url: queryURL,
