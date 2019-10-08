@@ -121,9 +121,9 @@ $("#submit").on("click", function(event){
         var appKey = "c31de725535780190b9ff532d8eb8706";
         var appId = "d0ac8702";
 
-        ingredients = ingredients.join(" ");
+        var ingredientString = ingredients.join(" ");
 
-        var queryURL = "https://api.edamam.com/search?q=" + ingredients + "&app_id=" + appId + "&app_key=" + appKey;
+        var queryURL = "https://api.edamam.com/search?q=" + ingredientString + "&app_id=" + appId + "&app_key=" + appKey;
 
         $.ajax({
             url: queryURL,
@@ -163,11 +163,37 @@ $("#submit").on("click", function(event){
                 var cardBody = $("<div>");
                 cardBody.addClass("card-body");
 
-                cardBody.append("<p>Ingredients: </p><br/>");
+                var newRow = $("<div>");
+                newRow.addClass("row");
+
+                var colOne = $("<div>");
+                colOne.addClass("col-md-6");
+                colOne.addClass("green");
+
+                var colTwo = $("<div>");
+                colTwo.addClass("col-md-6");
+                colTwo.addClass("red");
 
                 for (j = 0; j < recipeIngredients.length; j++) {
-                    cardBody.append("<p>" + recipeIngredients[j] + "</p><br/>");
+                    var isInArray = false;
+                    
+                    for (k = 0; k < ingredients.length; k++) {
+                        if (recipeIngredients[j].includes(ingredients[k])) {
+                            colOne.append("<p>" + recipeIngredients[j] + "</p><br/>");
+                            isInArray = true;
+                        }
+                    }
+
+                    if(!isInArray) {
+                        colTwo.append("<p>" + recipeIngredients[j] + "</p><br/>");
+                    }
+
                 }
+
+                newRow.append(colOne);
+                newRow.append(colTwo);
+
+                cardBody.append(newRow);
 
                 cardBody.append("<p>Calories: " + recipeCals + "</p>");
 
