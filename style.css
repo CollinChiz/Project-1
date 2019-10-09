@@ -16,7 +16,7 @@
     
 }
 .row {
-     
+     background-color: white; 
 }
 h2 {
     padding-top: 20px;
@@ -100,7 +100,7 @@ a {
 
   .column-1{
       background-image: url("tomatoes.jpg");
-      width: 60%;
+      
   }
   input {
       padding: 10px; 
@@ -113,7 +113,7 @@ a {
   }
   .column-2{
       background-image: url(pantry.jpg);
-      width: 40%;
+      
       min-height: 600px;
       height: auto;
   }
