@@ -9,13 +9,16 @@
 .row-one {
     width: 50%;
     text-align: center;
-    padding: 50px;
+    padding: 40px; 
     display: inline; 
 }
+.row {
+     
+}
 h2 {
-    padding-top: 30px;
+    padding-top: 20px;
     padding-left: 30px;
-    padding-bottom: 50px; 
+    padding-bottom: 20px; 
     padding-right: 30px;
 }
 h1 {
@@ -27,10 +30,14 @@ p, h2 {
 }
 
 .icons {
-    font-size: 18px; 
+    font-size: 16px; 
+    
 }
 
-.button {
+i {
+    text-align: center; 
+}
+a {
     background-color:#F7C331;
     border: none;
     color: white;
@@ -39,7 +46,13 @@ p, h2 {
     font-size: 16px;
     font-family: 'Roboto Condensed', sans-serif;
   }
-  .button2 {
+  a:hover {
+    background-color: #FC4A1A;
+    color: white;
+    text-decoration: none; 
+  }
+
+  #submit-button {
     background-color: #4ABDAC;
     border: none;
     color: white;
@@ -49,17 +62,33 @@ p, h2 {
     font-family: 'Roboto Condensed', sans-serif;
   }
   
-  .button2:hover{
+  #submit-button:hover{
       background-color: #F7C331; 
   }
-  .button:hover {
-    background-color: #FC4A1A;
+  #reset-button {
+    background-color:gray;
+    border: none;
+    color: white;
+    padding: 15px 25px;
+    text-align: center;
+    font-size: 16px;
+    font-family: 'Roboto Condensed', sans-serif;
+    margin-top: 10px;
+  }
+
+  #reset-button:hover{
+      background-color: #F7882F;
   }
 
   #container-2 {
     background-color: #4ABDAC;
     margin-top: 60px;
     width: 100%; 
+  }
+  #container-3 {
+      background-color: #4ABDAC;
+      width: 100%;
+      height: 500px; 
   }
 
   .column-1{
@@ -80,8 +109,16 @@ p, h2 {
       background-image: url(pantry.jpg);
       width: 50%;
   }
-  #pantry-shelves {
-      text-align: center; 
+  .food-text-style {
+      color: white; 
+      font-family: 'Mansalva', cursive;
+      font-size: 24px; 
   }
+  #pantry-div {
+      margin: 20px; 
+
+  }
+
+  
 
   
