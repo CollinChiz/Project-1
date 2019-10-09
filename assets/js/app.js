@@ -14,7 +14,10 @@ $(document).ready(function () {
         }
 
         for (i = 0; i < addIngredients.length; i++) {
-            $("#pantry-div").append(addIngredients[i] + "<br/>");
+            var newP = $("<p>");
+            newP.text(addIngredients[i]);
+            newP.addClass("food-text-style");
+            $("#pantry-div").append(newP);
         }
 
         $("#my-food").val("");
