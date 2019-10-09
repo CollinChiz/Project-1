@@ -1,6 +1,7 @@
 
 .jumbotron {
     background-color: #4ABDAC;
+    
 }
 .container {
     text-align: center;
@@ -57,15 +58,15 @@ p, h2 {
   }
 
   #container-2 {
-    background-color: #4ABDAC;
+    
     margin-top: 60px;
-    width: 100%; 
+    height: auto;
+    max-width: 100%;
+    overflow: hidden;
   }
 
   .column-1{
-      padding: 200px; 
       background-image: url("tomatoes.jpg");
-      width: 50%;
   }
   input {
       padding: 10px; 
@@ -74,14 +75,21 @@ p, h2 {
   }
 
   form {
-    
+    padding: 20%;
   }
   .column-2{
       background-image: url(pantry.jpg);
-      width: 50%;
+      min-height: 600px;
+      height: auto;
   }
   #pantry-shelves {
       text-align: center; 
   }
 
+ @media only screen and (max-width: 900px) {
+      .column-2 {
+          margin-top: 20px;
+      }
+     
+ }
   
