@@ -26,7 +26,7 @@ $(document).ready(function () {
     $("#reset-button").on("click",function(e) {
         e.preventDefault();
         $("#pantry-div").empty();
-        $("#container-3").empty();
+        $("#container-4").empty();
         ingredients = [];
         addIngredients = "";
     });
@@ -119,7 +119,7 @@ $(document).ready(function () {
 
                 newDiv.append(cardBody);
 
-                $("#container-3").append(newDiv);
+                $("#container-4").append(newDiv);
 
 
             };
@@ -183,7 +183,7 @@ $("#submit").on("click", function(event){
 
                newDiv.append(cardBody);
 
-               $("#container-3").append(newDiv);
+               $("#container-4").append(newDiv);
                
            };
        });
