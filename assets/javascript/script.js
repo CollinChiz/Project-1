@@ -1,4 +1,4 @@
-$("#submit-button").on("click", function(e){
+/*$("#submit-button").on("click", function(e){
     e.preventDefault();
     var foodItem = $("#my-food").val();
     var foodParagraph = $("<p>");
@@ -7,7 +7,7 @@ $("#submit-button").on("click", function(e){
     $("#pantry-div").prepend(foodParagraph);
 
     console.log(foodParagraph);
-});
+});*/
 
 $("#reset-button").on("click",function(e) {
     e.preventDefault();

@@ -3,9 +3,9 @@ $(document).ready(function () {
     var ingredients = [];
     var addIngredients = "";
 
-    $("#addIngredient").on("click", function(e) {
+    $("#submit-button").on("click", function(e) {
         e.preventDefault();
-        addIngredients = $("#ingredientInput").val().trim();
+        addIngredients = $("#my-food").val().trim();
         addIngredients = addIngredients.replace(/\s+/g, "").toLowerCase();
         addIngredients = addIngredients.split(",");
 
@@ -14,10 +14,115 @@ $(document).ready(function () {
         }
 
         for (i = 0; i < addIngredients.length; i++) {
-            $(".ingredients").append(addIngredients[i] + " ");
+            $("#pantry-div").append(addIngredients[i] + "<br/>");
         }
 
-        $("#ingredientInput").val("");
+        $("#my-food").val("");
+    });
+
+    $("#reset-button").on("click",function(e) {
+        e.preventDefault();
+        $("#pantry-div").empty();
+        $("#container-3").empty();
+        ingredients = [];
+        addIngredients = "";
+    });
+    
+
+
+    $("#submit").on("click", function (e) {
+        e.preventDefault();
+
+        var appKey = "c31de725535780190b9ff532d8eb8706";
+        var appId = "d0ac8702";
+
+        var ingredientString = ingredients.join(" ");
+
+        var queryURL = "https://api.edamam.com/search?q=" + ingredientString + "&app_id=" + appId + "&app_key=" + appKey;
+
+        $.ajax({
+            url: queryURL,
+            method: "GET"
+        }).then(function (response) {
+            console.log(response);
+
+            for (i = 0; i < response.hits.length; i++) {
+
+
+                var recipeName = response.hits[i].recipe.label;
+                var recipeImage = response.hits[i].recipe.image;
+                var recipeCals = response.hits[i].recipe.calories;
+                recipeCals = Math.floor(recipeCals);
+                var recipeURL = response.hits[i].recipe.url;
+                var recipeIngredients = response.hits[i].recipe.ingredientLines;
+
+                var newDiv = $("<div>");
+                newDiv.addClass("card");
+
+                var newImg = $("<img>");
+                newImg.attr("src", recipeImage);
+                newDiv.append(newImg);
+
+                var cardTitle = $("<h5>");
+                cardTitle.addClass("card-title");
+
+                var cardLink = $("<a>");
+                cardLink.attr("href", recipeURL);
+                cardLink.text(recipeName);
+
+                cardTitle.append(cardLink);
+                newDiv.append(cardTitle);
+
+
+
+                var cardBody = $("<div>");
+                cardBody.addClass("card-body");
+
+                var newRow = $("<div>");
+                newRow.addClass("row");
+
+                var colOne = $("<div>");
+                colOne.addClass("col-md-6");
+                colOne.addClass("green");
+                colOne.append("<h3>You have:</h3>")
+
+                var colTwo = $("<div>");
+                colTwo.addClass("col-md-6");
+                colTwo.addClass("red");
+                colTwo.append("<h3>You need:</h3>")
+
+                for (j = 0; j < recipeIngredients.length; j++) {
+                    var isInArray = false;
+                    
+                    for (k = 0; k < ingredients.length; k++) {
+                        if (recipeIngredients[j].includes(ingredients[k])) {
+                            colOne.append("<p>" + recipeIngredients[j] + "</p><br/>");
+                            isInArray = true;
+                        }
+                    }
+
+                    if(!isInArray) {
+                        colTwo.append("<p>" + recipeIngredients[j] + "</p><br/>");
+                    }
+
+                }
+
+                newRow.append(colOne);
+                newRow.append(colTwo);
+
+                cardBody.append(newRow);
+
+                cardBody.append("<p>Calories: " + recipeCals + "</p>");
+
+                newDiv.append(cardBody);
+
+                $("#container-3").append(newDiv);
+
+
+            };
+
+        });
+
     });
 
 
@@ -75,13 +180,8 @@ $("#submit").on("click", function(event){
 
                newDiv.append(cardBody);
 
-               $(".recipes").append(newDiv);
-               $(".recipes").append(newDiv);
-
-
-
-
-
+               $("#container-3").append(newDiv);
+               
            };
        });
 
@@ -110,103 +210,6 @@ $("#submit").on("click", function(event){
     };
 
     signIn();*/
-
-
-
-    
-
-    $("#submit").on("click", function (e) {
-        e.preventDefault();
-
-        var appKey = "c31de725535780190b9ff532d8eb8706";
-        var appId = "d0ac8702";
-
-        var ingredientString = ingredients.join(" ");
-
-        var queryURL = "https://api.edamam.com/search?q=" + ingredientString + "&app_id=" + appId + "&app_key=" + appKey;
-
-        $.ajax({
-            url: queryURL,
-            method: "GET"
-        }).then(function (response) {
-            console.log(response);
-
-            for (i = 0; i < response.hits.length; i++) {
-
-
-                var recipeName = response.hits[i].recipe.label;
-                var recipeImage = response.hits[i].recipe.image;
-                var recipeCals = response.hits[i].recipe.calories;
-                recipeCals = Math.floor(recipeCals);
-                var recipeURL = response.hits[i].recipe.url;
-                var recipeIngredients = response.hits[i].recipe.ingredientLines;
-
-                var newDiv = $("<div>");
-                newDiv.addClass("card");
-
-                var newImg = $("<img>");
-                newImg.attr("src", recipeImage);
-                newDiv.append(newImg);
-
-                var cardTitle = $("<h5>");
-                cardTitle.addClass("card-title");
-
-                var cardLink = $("<a>");
-                cardLink.attr("href", recipeURL);
-                cardLink.text(recipeName);
-
-                cardTitle.append(cardLink);
-                newDiv.append(cardTitle);
-
-
-
-                var cardBody = $("<div>");
-                cardBody.addClass("card-body");
-
-                var newRow = $("<div>");
-                newRow.addClass("row");
-
-                var colOne = $("<div>");
-                colOne.addClass("col-md-6");
-                colOne.addClass("green");
-
-                var colTwo = $("<div>");
-                colTwo.addClass("col-md-6");
-                colTwo.addClass("red");
-
-                for (j = 0; j < recipeIngredients.length; j++) {
-                    var isInArray = false;
-                    
-                    for (k = 0; k < ingredients.length; k++) {
-                        if (recipeIngredients[j].includes(ingredients[k])) {
-                            colOne.append("<p>" + recipeIngredients[j] + "</p><br/>");
-                            isInArray = true;
-                        }
-                    }
-
-                    if(!isInArray) {
-                        colTwo.append("<p>" + recipeIngredients[j] + "</p><br/>");
-                    }
-
-                }
-
-                newRow.append(colOne);
-                newRow.append(colTwo);
-
-                cardBody.append(newRow);
-
-                cardBody.append("<p>Calories: " + recipeCals + "</p>");
-
-                newDiv.append(cardBody);
-
-                $(".recipes").append(newDiv);
-
-
-            };
-
-        });
-
-    });
 
 });
 
