@@ -39,6 +39,8 @@ $(document).ready(function () {
         var appKey = "c31de725535780190b9ff532d8eb8706";
         var appId = "d0ac8702";
 
+        console.log(ingredients);
+
         var ingredientString = ingredients.join(" ");
 
         var queryURL = "https://api.edamam.com/search?q=" + ingredientString + "&app_id=" + appId + "&app_key=" + appKey;
