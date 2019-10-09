@@ -3,9 +3,12 @@ $(document).ready(function () {
     var ingredients = [];
     var addIngredients = "";
 
-    $("#addIngredient").on("click", function (e) {
+
+
+    $("#submit-button").on("click", function(e) {
+
         e.preventDefault();
-        addIngredients = $("#ingredientInput").val().trim();
+        addIngredients = $("#my-food").val().trim();
         addIngredients = addIngredients.replace(/\s+/g, "").toLowerCase();
         addIngredients = addIngredients.split(",");
 
@@ -14,11 +17,15 @@ $(document).ready(function () {
         }
 
         for (i = 0; i < addIngredients.length; i++) {
-            $(".ingredients").append(addIngredients[i] + " ");
+            var newP = $("<p>");
+            newP.text(addIngredients[i]);
+            newP.addClass("food-text-style");
+            $("#pantry-div").append(newP);
         }
 
-        $("#ingredientInput").val("");
+        $("#my-food").val("");
     });
+
 
 
     $("#submit").on("click", function (event) {
@@ -35,6 +42,18 @@ $(document).ready(function () {
 
 
 
+
+    $("#reset-button").on("click",function(e) {
+        e.preventDefault();
+        $("#pantry-div").empty();
+        $("#container-4").empty();
+        ingredients = [];
+        addIngredients = "";
+    });
+    
+
+
+    
 
     function edamamApi() {
         var appKey = "c31de725535780190b9ff532d8eb8706";
@@ -118,6 +137,18 @@ $(document).ready(function () {
 
 
 
+
+                var colOne = $("<div>");
+                colOne.addClass("col-md-6");
+                colOne.addClass("green");
+                colOne.append("<h3>You have:</h3>")
+
+                var colTwo = $("<div>");
+                colTwo.addClass("col-md-6");
+                colTwo.addClass("red");
+                colTwo.append("<h3>You need:</h3>")
+
+
         var cardBody = $("<div>");
         cardBody.addClass("card-body");
 
@@ -139,21 +170,11 @@ $(document).ready(function () {
         var ingredientsNeeded = _.difference(recipeIngredients, ingredients);
         console.log(ingredientsNeeded);
 
-    //    for (j = 0; j < recipeIngredients.length; j++) {
-    //         var isInArray = false;
 
-    //         for (k = 0; k < ingredients.length; k++) {
-    //             if (recipeIngredients[j].includes(ingredients[k])) {
-    //                 colOne.append("<p>" + recipeIngredients[j] + "</p><br/>");
-    //                 isInArray = true;
-    //             }
-    //         }
+               
 
-    //         if (!isInArray) {
-    //             colTwo.append("<p>" + recipeIngredients[j] + "</p><br/>");
-    //         }
 
-    //     }
+   
 
         for(j = 0; j < ingredientsNeeded.length; j++) {
             colTwo.append("<p>" + ingredientsNeeded[j] + "</p>");
@@ -163,9 +184,11 @@ $(document).ready(function () {
         newRow.append(colOne);
         newRow.append(colTwo);
 
+
         cardBody.append(newRow);
 
         cardBody.append("<p>Calories: " + recipeCals + "</p>");
+
 
         newDiv.append(cardBody);
 
