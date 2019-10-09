@@ -25,9 +25,9 @@ $(document).ready(function () {
         var appKey = "c31de725535780190b9ff532d8eb8706";
         var appId = "d0ac8702";
 
-        ingredients = ingredients.join(" ");
+        var ingredientString = ingredients.join(" ");
 
-        var queryURL = "https://api.edamam.com/search?q=" + ingredients + "&app_id=" + appId + "&app_key=" + appKey;
+        var queryURL = "https://api.edamam.com/search?q=" + ingredientString + "&app_id=" + appId + "&app_key=" + appKey;
 
         $.ajax({
             url: queryURL,
@@ -101,6 +101,9 @@ $(document).ready(function () {
             var json = JSON.parse(response);
             console.log(json);
 
+        var ingredientString = ingredients.join(" ");
+
+        var queryURL = "https://api.edamam.com/search?q=" + ingredientString + "&app_id=" + appId + "&app_key=" + appKey;
 
 
 
@@ -111,6 +114,12 @@ $(document).ready(function () {
                 var recipeUrl = json.results[i].href;
                 var recipeCals = "No information available";
                 var ingredientsDisplayed = json.results[i].ingredients;
+                var recipeName = response.hits[i].recipe.label;
+                var recipeImage = response.hits[i].recipe.image;
+                var recipeCals = response.hits[i].recipe.calories;
+                recipeCals = Math.floor(recipeCals);
+                var recipeURL = response.hits[i].recipe.url;
+                var recipeIngredients = response.hits[i].recipe.ingredientLines;
 
                 var newDiv = $("<div>");
                 newDiv.addClass("card");
@@ -132,6 +141,38 @@ $(document).ready(function () {
 
                 var cardBody = $("<div>");
                 cardBody.addClass("card-body");
+
+                var newRow = $("<div>");
+                newRow.addClass("row");
+
+                var colOne = $("<div>");
+                colOne.addClass("col-md-6");
+                colOne.addClass("green");
+
+                var colTwo = $("<div>");
+                colTwo.addClass("col-md-6");
+                colTwo.addClass("red");
+
+                for (j = 0; j < recipeIngredients.length; j++) {
+                    var isInArray = false;
+                    
+                    for (k = 0; k < ingredients.length; k++) {
+                        if (recipeIngredients[j].includes(ingredients[k])) {
+                            colOne.append("<p>" + recipeIngredients[j] + "</p><br/>");
+                            isInArray = true;
+                        }
+                    }
+
+                    if(!isInArray) {
+                        colTwo.append("<p>" + recipeIngredients[j] + "</p><br/>");
+                    }
+
+                }
+
+                newRow.append(colOne);
+                newRow.append(colTwo);
+
+                cardBody.append(newRow);
 
                 cardBody.append("<p>Calories: " + recipeCals + "</p>");
 
