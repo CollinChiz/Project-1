@@ -91,7 +91,7 @@ a {
     margin-top: 60px;
     height: auto;
     max-width: 100%;
-    overflow: hidden;
+    
   }
   #container-4 {
       /* background-color: #4ABDAC;     */
@@ -118,17 +118,18 @@ a {
       min-height: 600px;
       height: auto;
       text-align: left;
+      min-height: 600px;
+      height: auto; 
+      text-align: left; 
+      
   }
   .food-text-style {
       color: white; 
       font-family: 'Mansalva', cursive;
       font-size: 24px; 
   }
-  #pantry-div {
-      margin: 20px; 
 
 
-  }
   .submitButton {
       position: absolute;
       right: 42%;
@@ -171,6 +172,9 @@ a {
   .green {
     border: 3px solid green;
     
+  
+  html {
+      background-color: none;
   }
 
 
@@ -186,6 +190,15 @@ a {
       }
      
  }
-  
+
+ #pantry-div {
+    background-image: url(pantry.jpg);
+     height: 100%; 
+     width: 100%; 
+     padding: 10px; 
+     text-align: center; 
+ }
+ 
+
 
   
