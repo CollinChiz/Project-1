@@ -30,11 +30,11 @@ $(document).ready(function () {
 
     $("#submit").on("click", function (event) {
         
+        addRecipeRow();
         event.preventDefault();
-        $(".recipes").empty();
+        $("#container-4").empty();
         edamamApi();
         recipePuppyApi();
-
     });
 
 
@@ -102,12 +102,6 @@ $(document).ready(function () {
             console.log(json);
 
 
-<<<<<<< HEAD
-                var newImg = $("<img>")
-                newImg.attr("src", recipeImage);
-                newDiv.append(newImg);
-=======
->>>>>>> fa8e2b13f8d950eb1e41a27972b4cccd6e28d1f0
 
 
 
@@ -129,6 +123,8 @@ $(document).ready(function () {
 
         var newImg = $("<img>");
         newImg.attr("src", recipeImage);
+        newImg.attr("height", "400px");
+        newImg.attr("width", "400px");
         newDiv.append(newImg);
 
         var cardTitle = $("<h5>");
@@ -180,16 +176,7 @@ $(document).ready(function () {
                
 
 
-<<<<<<< HEAD
-               var newImg = $("<img>");
-               newImg.attr("height", "400px");
-               newImg.attr("width", "400px");
-               newImg.attr("src", recipeImage);
-               newDiv.append(newImg);
-=======
    
->>>>>>> fa8e2b13f8d950eb1e41a27972b4cccd6e28d1f0
-
         for(j = 0; j < ingredientsNeeded.length; j++) {
             colTwo.append("<p>" + ingredientsNeeded[j] + "</p>");
         }
@@ -206,7 +193,7 @@ $(document).ready(function () {
 
         newDiv.append(cardBody);
 
-        $(".recipes").append(newDiv);
+        $("#container-4").append(newDiv);
     };
 
 });
