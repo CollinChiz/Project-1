@@ -17,6 +17,7 @@
 }
 .row {
      background-color: white; 
+     margin-bottom: 20px;
 }
 h2 {
     padding-top: 20px;
@@ -86,16 +87,17 @@ a {
   }
 
   #container-3 {
-    background-color: #4ABDAC;
+    /* background-color: #4ABDAC; */
     margin-top: 60px;
     height: auto;
     max-width: 100%;
-    overflow: hidden;
+    
   }
   #container-4 {
-      background-color: #4ABDAC;    
+      /* background-color: #4ABDAC;     */
       width: 100%;
       height: 500px; 
+      text-align: center;
   }
 
   .column-1{
@@ -113,9 +115,12 @@ a {
   }
   .column-2{
       background-image: url(pantry.jpg);
-      
       min-height: 600px;
       height: auto;
+      text-align: left;
+      min-height: 600px;
+      height: auto; 
+      text-align: left; 
       
   }
   .food-text-style {
@@ -123,19 +128,77 @@ a {
       font-family: 'Mansalva', cursive;
       font-size: 24px; 
   }
-  #pantry-div {
-      margin: 20px; 
+
+
+  .submitButton {
+      position: absolute;
+      right: 42%;
+      bottom: 0;  
+      margin-bottom: 10px;
+      text-align: center; 
+  }
+
+  .card-title {
+      margin-top: 20px;
+      margin-bottom: 20px;
 
   }
+  .card {
+      border: 5px solid black;
+      
+      margin-top: 20px;
+      text-align: center;
+      padding-left: 200px;
+      padding-right: 200px;
+      background-image: url(assets/images/kitchentips.jpg);
+      
+  }
+  img {
+      margin-left: 270px;
+      border: 2px solid black;
+      border-radius: 10px;
+      margin-top: 20px;
+  }
+  .card-body {
+      border: 3px solid black;
+      border-radius: 20px;
+      background-color: white;
+      margin-bottom: 20px;
+  }
+  .red {
+    border: 3px solid red;
+    
+  }
+  .green {
+    border: 3px solid green;
+    
+  
   html {
       background-color: none;
   }
+
+
  @media only screen and (max-width: 900px) {
       .column-2 {
           margin-top: 20px;
       }
+      .container-4 {
+          text-align: center;
+      }
+      .card-body {
+          width: 100%;
+      }
      
  }
-  
+
+ #pantry-div {
+    background-image: url(pantry.jpg);
+     height: 100%; 
+     width: 100%; 
+     padding: 10px; 
+     text-align: center; 
+ }
+ 
+
 
   
