@@ -90,7 +90,7 @@ a {
     margin-top: 60px;
     height: auto;
     max-width: 100%;
-    overflow: hidden;
+    
   }
   #container-4 {
       background-color: #4ABDAC;    
@@ -112,10 +112,9 @@ a {
     padding: 20%;
   }
   .column-2{
-      background-image: url(pantry.jpg);
-      
       min-height: 600px;
-      height: auto;
+      height: auto; 
+      text-align: left; 
       
   }
   .food-text-style {
@@ -123,10 +122,8 @@ a {
       font-family: 'Mansalva', cursive;
       font-size: 24px; 
   }
-  #pantry-div {
-      margin: 20px; 
 
-  }
+  
   html {
       background-color: none;
   }
@@ -136,6 +133,15 @@ a {
       }
      
  }
-  
+
+ #pantry-div {
+    background-image: url(pantry.jpg);
+     height: 100%; 
+     width: 100%; 
+     padding: 10px; 
+     text-align: center; 
+ }
+ 
+
 
   
