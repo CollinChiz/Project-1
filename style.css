@@ -149,7 +149,7 @@ a {
       text-align: center;
       padding-left: 200px;
       padding-right: 200px;
-      background-image: url(assets/images/63647627-empty-wooden-counter-top-with-kitchen-background.jpg);
+      background-image: url(assets/images/kitchentips.jpg);
       
   }
   img {
@@ -159,7 +159,7 @@ a {
       margin-top: 20px;
   }
   .card-body {
-      border: 1px solid black;
+      border: 3px solid black;
       border-radius: 20px;
       background-color: white;
       margin-bottom: 20px;
@@ -177,6 +177,12 @@ a {
  @media only screen and (max-width: 900px) {
       .column-2 {
           margin-top: 20px;
+      }
+      .container-4 {
+          text-align: center;
+      }
+      .card-body {
+          width: 100%;
       }
      
  }

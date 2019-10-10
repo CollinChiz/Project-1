@@ -152,6 +152,7 @@ $(document).ready(function () {
 
 
         var cardBody = $("<div>");
+        cardBody.addClass("col-sm-12");
         cardBody.addClass("card-body");
 
         var newRow = $("<div>");
