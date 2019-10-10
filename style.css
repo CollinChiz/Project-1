@@ -102,7 +102,7 @@ a {
 
   .column-1{
       background-image: url("tomatoes.jpg");
-      
+
   }
   input {
       padding: 10px; 
@@ -117,10 +117,9 @@ a {
       background-image: url(pantry.jpg);
       min-height: 600px;
       height: auto;
-      text-align: left;
-      min-height: 600px;
-      height: auto; 
-      text-align: left; 
+      text-align: center;
+    
+      
       
   }
   .food-text-style {
@@ -145,7 +144,6 @@ a {
   }
   .card {
       border: 5px solid black;
-      
       margin-top: 20px;
       text-align: center;
       padding-left: 200px;
@@ -195,10 +193,9 @@ a {
     background-image: url(pantry.jpg);
      height: 100%; 
      width: 100%; 
-     padding: 10px; 
+     padding: 20px; 
      text-align: center; 
  }
- 
 
 
-  
+
