@@ -113,10 +113,9 @@ a {
   }
   .column-2{
       background-image: url(pantry.jpg);
-      
       min-height: 600px;
       height: auto;
-      
+      text-align: left;
   }
   .food-text-style {
       color: white; 
@@ -126,10 +125,25 @@ a {
   #pantry-div {
       margin: 20px; 
 
+
   }
-  html {
-      background-color: none;
+  .submitButton {
+      position: absolute;
+      right: 42%;
+      bottom: 0;  
+      margin-bottom: 10px;
+      text-align: center; 
   }
+
+  .card-title {
+      margin-top: 10px;
+  }
+  .card {
+      border: 5px solid #4ABDAC;
+      margin-top: 15px;
+      
+  }
+  
  @media only screen and (max-width: 900px) {
       .column-2 {
           margin-top: 20px;

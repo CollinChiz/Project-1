@@ -62,7 +62,7 @@ $(document).ready(function () {
                 var newDiv = $("<div>");
                 newDiv.addClass("card");
 
-                var newImg = $("<img>");
+                var newImg = $("<img>")
                 newImg.attr("src", recipeImage);
                 newDiv.append(newImg);
 
@@ -163,6 +163,8 @@ $("#submit").on("click", function(event){
                newDiv.addClass("card");
 
                var newImg = $("<img>");
+               newImg.attr("height", "400px");
+               newImg.attr("width", "400px");
                newImg.attr("src", recipeImage);
                newDiv.append(newImg);
 
