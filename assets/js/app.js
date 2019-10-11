@@ -30,8 +30,6 @@ $(document).ready(function () {
 
 
     $("#submit").on("click", function (event) {
-        
-        addRecipeRow();
         event.preventDefault();
         $("#container-4").empty();
         edamamApi();
